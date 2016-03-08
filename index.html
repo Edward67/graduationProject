@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>毕业设计</title>
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+				font-family: "SimHei";
+			}
+
+			#blocker {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.5);
+			}
+
+			#instructions {
+				width: 100%;
+				height: 100%;
+				color: #ffffff;
+				text-align: center;
+			}
+			#statusBox {
+				margin: 0;
+				list-style-type: none;
+				padding: 5px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#statusBox li{
+				background: rgba(0,0,0,0.5);
+				display: table;
+				margin: 5px;
+				padding: 5px;
+				border-radius: 4px;
+				color: #fff;
+				font-family: SimHei;
+			}
+			#statusBox li span{
+				color: #CD4040;
+			}
+			
+			#threeView {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+			#threeView canvas {
+				margin: 5px;
+			}
+			#topView {
+				position: absolute;
+				bottom: 200px;
+				right: 0;
+			}
+			#continue {
+				margin-top: 20%;
+				display: inline-block;
+				font-size: 40px;
+				cursor: pointer;
+				border: 1px solid #fff;
+				border-radius: 5px;
+				font-weight: 400;
+				padding: 20px;
+				background-color: #326d48;
+			}
+			#continue:hover {
+				background-color: #467b5a;
+			}
+			#continue:active {
+				background-color: #4c7f5f;
+			}
+			#instructions hr {
+				width: 50%;
+			}
+			#instructions span{
+				vertical-align: super;
+				margin: 0 5px 0 10px;
+			}
+			#flySpeedRadioSpan, #objectsSpeedRadioSpan {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<!--[if lt IE 11]> 
+		<script>alert('您的浏览器版本太低，升级至IE11或使用Chrome、FireFox等访问本页面');</script>
+	<![endif]-->
+	
+	<!-- <script src="asset/js/all.min.js"></script> -->
+	<script src="src/js/three.min.js"></script>
+	<script src="src/js/PointerLockControls.js"></script>
+	<script src="src/js/script.js"></script>
+		<div id="blocker">
+			<div id="instructions">
+				<h2 id="continue">点击继续</h2>
+				<p>W, A, S, D = 平移</p>
+				<p>MOUSE = 改变视角</p>
+				<p>MOUSE CLICK = 上移/下移</p>
+				<p>R = 动画暂停/重播</p>
+				<p>ESC = 恢复鼠标</p>
+				<hr>
+				<p><span>飞行速度: </span><input type="range" id="flySpeedRadio" min="1" max="99" step="1" value="30" /><span id="flySpeedRadioSpan">30</span></p>
+				<p><span>动画速度: </span><input type="range" id="objectsSpeedRadio" min="1" max="99" step="1" value="4" /><span id="objectsSpeedRadioSpan">4</span></p>
+			</div>
+
+		</div>
+		<ul id="statusBox">
+			<li>当前方块ID: <span id="nowBoxId">1</span></li>
+			<li>当前为第 <span id="nowStep">1</span> 步, 共有 <span id="allStep">1</span> 步</li>
+			<li>当前空间利用率 <span id="spaceUsed">0</span></li>
+		</ul>
+	</body>
+</html>
